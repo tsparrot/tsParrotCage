@@ -9,4 +9,40 @@
     Published {{ post.publish }} by {{ post.author }}
     </p>
     {{ post.body|linebreaks }}
+    <p>
+    <a href="{% url "cage:post_share" post.id %}"> 分享这篇文章 </a>
+    </p>
+    <h2>Similar posts</h2>
+        {% for post in similar_posts %}
+            <p>
+                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+            </p>
+        {% empty %}
+            There are no similar posts yet.
+        {% endfor %}
+    {% with comments.count as total_comments %}
+        <h2>
+            已有 {{ total_comments }} 评论
+        </h2>
+    {% endwith %}
+    {% for comment in comments %}
+        <div class="comment">
+            <p class="info">
+                评论 {{ forloop.counter }} 由 {{ comment.name }} 于 {{ comment.created }} 添加
+            </p>
+            {{ comment.body|linebreaks }}
+        </div>
+    {% empty %}
+        <p> 暂无评论 </p>
+    {% endfor %}
+    {% if new_comment %}
+        <h2> 你的评论已被添加 </h2>
+    {% else %}
+        <h2>添加新评论</h2>
+        <form action="." method="post">
+        {{ comment_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="添加评论"></p>
+        </form>
+    {% endif %}
 {% endblock %}

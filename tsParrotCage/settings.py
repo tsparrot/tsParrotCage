@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cage.apps.CageConfig',
+    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -113,10 +114,17 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_HOST_USER = '1134879109@qq.com'
+EMAIL_HOST_PASSWORD = 'ybzwvdivflfribja'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = True
