@@ -1,4 +1,5 @@
 {% extends 'cage/base.html' %}
+{% load cage_tags %}
 {% block title %}
     {{ post.title }}
 {% endblock %}
@@ -8,7 +9,7 @@
     <p class="date">
     Published {{ post.publish }} by {{ post.author }}
     </p>
-    {{ post.body|linebreaks }}
+    {{ post.body|markdown }}
     <p>
     <a href="{% url "cage:post_share" post.id %}"> 分享这篇文章 </a>
     </p>
