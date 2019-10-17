@@ -22,7 +22,7 @@
         <p class="date">
         Published {{ post.publish }} by {{ post.author }}
         </p>
-        {{ post.body|markdown|truncatewords_html:30 }}
+        {{ post.body|markdown|truncatewords_html:10 }}
     {% endfor %}
     {% include 'cage/pagination.html' with page=posts%}
 {% endblock %}

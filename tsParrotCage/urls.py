@@ -21,7 +21,8 @@ from cage.sitemaps import PostSitemaps
 sitemaps = {'posts': PostSitemaps, }
 
 urlpatterns = [
+    path('', include('cage.urls', namespace='cage')),
     path('admin/', admin.site.urls),
-    path('cage/', include('cage.urls', namespace='cage')),
+    #path('cage/', include('cage.urls', namespace='cage')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap')
 ]
