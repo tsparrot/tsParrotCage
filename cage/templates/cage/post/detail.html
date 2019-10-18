@@ -10,16 +10,13 @@
     Published {{ post.publish }} by {{ post.author }}
     </p>
     {{ post.body|markdown }}
-    <p>
-    <a href="{% url "cage:post_share" post.id %}"> 分享这篇文章 </a>
-    </p>
-    <h2>Similar posts</h2>
+    <h2>相似文章</h2>
         {% for post in similar_posts %}
             <p>
                 <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
             </p>
         {% empty %}
-            There are no similar posts yet.
+            目前没有相似的文章
         {% endfor %}
     {% with comments.count as total_comments %}
         <h2>

@@ -23,7 +23,7 @@ h2 {
 #content { 
     float:right;
     width:70%;
-    padding:0 0 0 40px;
+    padding:0 40px 0 40px;
 }
 
 #sidebar { 
@@ -81,9 +81,10 @@ input[type=submit] {
 /* comments */
 .comment {
     padding:10px;
+    background: #d5e7f3;
 }
 .comment:nth-child(even) {
-    background:#efefef;
+    background: #e1efe7;
 }
 .comment .info {
     font-weight:bold;

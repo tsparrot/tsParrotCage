@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404
-from django.contrib.postgres.search import SearchVector
 from django.core.mail import send_mail
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Count
@@ -57,6 +56,7 @@ def post_detail(request, year, month, day, post):
                                                      'comment_form': comment_form, 'similar_posts': similar_posts})
 
 
+'''
 def post_share(request, post_id):
     # 通过id获取 post 对象
     post = get_object_or_404(Post, id=post_id, status='published')
@@ -71,11 +71,13 @@ def post_share(request, post_id):
             post_url = request.build_absolute_uri(post.get_absolute_url())
             subject = '{} ({}) 推荐你阅读 "{}"'.format(cd['name'], cd['email'], post.title)
             message = '在 {} 阅读 "{}" \n\n{}\s 评论道:{}'.format(post_url, post.title, cd['name'], cd['comments'])
-            send_mail(subject, message, '1134879109@qq.com', [cd['to']])
+            send_mail(subject, message, '1134879109@qq.com', [cd['to']], fail_silently=False)
             sent = True
+
     else:
         form = EmailPostForm()
     return render(request, 'cage/post/share.html', {'post': post, 'form': form, 'sent': sent})
+'''
 
 
 def post_search(request):
