@@ -21,16 +21,16 @@ h2 {
 }
 
 #content { 
-    float:left;
-    width:60%;
-    padding:0 0 0 40px;
+    float:right;
+    width:70%;
+    padding:0 40px 0 40px;
 }
 
 #sidebar { 
-    float:right;
-    width:30%;
+    float:left;
+    width:20%;
     padding:10px;
-    background:#efefef;
+    background: #d5e7f3;
     height:100%;
 }
 
@@ -81,9 +81,10 @@ input[type=submit] {
 /* comments */
 .comment {
     padding:10px;
+    background: #d5e7f3;
 }
 .comment:nth-child(even) {
-    background:#efefef;
+    background: #ffffff;
 }
 .comment .info {
     font-weight:bold;
