@@ -30,7 +30,7 @@ h2 {
     float:left;
     width:20%;
     padding:10px;
-    background:#d5e7f3;
+    background: #d5e7f3;
     height:100%;
 }
 
@@ -84,7 +84,7 @@ input[type=submit] {
     background: #d5e7f3;
 }
 .comment:nth-child(even) {
-    background: #e1efe7;
+    background: #ffffff;
 }
 .comment .info {
     font-weight:bold;
