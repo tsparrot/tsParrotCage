@@ -1,0 +1,23 @@
+{% extends "cage/base.html" %}
+{% load cage_tags %}
+{% block title %}PaCage{% endblock %}
+{% block content %}
+    <h1>PaCage</h1>
+    {% regroup posts by publish.year as year_post_group %}
+        {% for year in year_post_group %}
+            <h2>{{ year.grouper }} 年</h2>
+            {% regroup year.list by publish.month as month_post_group %}
+            <ul>
+                {% for month in month_post_group %}
+                    <l id="posts">
+                        {% for post in month.list %}
+                        <li>
+                            <span class="meta">{{ post.publish | date:"Y-m-d"}}</span>
+                            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                        </li>
+                        {% endfor %}
+                    </l>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+{% endblock %}

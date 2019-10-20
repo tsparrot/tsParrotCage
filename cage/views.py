@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404
-from django.core.mail import send_mail
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Count
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
@@ -21,7 +20,7 @@ def post_list(request, tag_slug=None):
         tag = get_object_or_404(Tag, slug=tag_slug)
         object_list = object_list.filter(tags__in=[tag])
 
-    paginator = Paginator(object_list, 3)    #每页三篇
+    paginator = Paginator(object_list, 3)    # 每页三篇
     page = request.GET.get('page')
     try:
         posts = paginator.page(page)
@@ -31,6 +30,11 @@ def post_list(request, tag_slug=None):
         posts = Paginator.page(paginator.num_pages)
 
     return render(request, 'cage/post/list.html', {'page': page, 'posts': posts, 'tag': tag})
+
+
+def post_filing(request):
+    posts = Post.published.all()
+    return render(request, 'cage/post/filing.html', {'posts': posts})
 
 
 def post_detail(request, year, month, day, post):
