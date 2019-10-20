@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="shortcut icon" href="{%static "icon/favicon.ico" %}" />
+    <link rel="shortcut icon" href="{%static "icon/favicon.ico" %}" >
     <link rel="stylesheet" href="{% static "css/cage.css" %}">
 </head>
 <body>
@@ -17,9 +17,9 @@
         <h2><a href='{% url "cage:post_list" %}'>tsParrot Cage</a></h2>
         <h3>EL PSY CONGROO!</h3>
         <p>这里收录了我的 {% total_posts %} 篇博客 </p>
-        <h3>Latest posts</h3>
+        <h3>最近收录</h3>
         {% show_latest_posts 3 %}
-        <h3>Most commented posts</h3>
+        <h3>最多评价</h3>
         {% get_most_commented_posts as most_commented_posts %}
         <ul>
             {% for post in most_commented_posts %}
@@ -28,7 +28,8 @@
                 </li>
             {% endfor %}
         </ul>
-        <p><a href='{% url "cage:post_feed" %}'>Subscribe to my RSS feed</a></p>
+        <p><a href='{% url "cage:post_feed" %}'>订阅RSS</a></p>
+        <p><a href= '/admin'>管理博客</a> </p>
     </div>
 </body>
 </html>
