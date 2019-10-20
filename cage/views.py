@@ -6,7 +6,7 @@ from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 
 from taggit.models import Tag
 from .models import Post
-from .forms import EmailPostForm, CommentForm, SearchForm
+from .forms import CommentForm, SearchForm
 
 
 # class PostListView(ListView):

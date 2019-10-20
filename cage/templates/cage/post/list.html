@@ -1,8 +1,8 @@
 {% extends "cage/base.html" %}
 {% load cage_tags %}
-{% block title %}芝麻弹结社{% endblock %}
+{% block title %}PaCage{% endblock %}
 {% block content %}
-    <h1>芝麻弹结社</h1>
+    <h1>PaCage</h1>
     {% if tag %}
         <h2>Posts tagged with "{{ tag.name }}"</h2>
     {% endif %}
@@ -25,4 +25,5 @@
         {{ post.body|markdown|truncatewords_html:10 }}
     {% endfor %}
     {% include 'cage/pagination.html' with page=posts%}
+
 {% endblock %}
