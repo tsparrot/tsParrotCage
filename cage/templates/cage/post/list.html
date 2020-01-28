@@ -1,4 +1,5 @@
 {% extends "cage/base.html" %}
+{% load static %}
 {% load cage_tags %}
 {% block title %}PaCage{% endblock %}
 {% block content %}
@@ -25,5 +26,11 @@
         {{ post.body|markdown|truncatewords_html:10 }}
     {% endfor %}
     {% include 'cage/pagination.html' with page=posts%}
-
+    <!-- 引入注脚 -->
+    {% include 'cage/footer.html' %}
+    <!-- bootstrap.js 依赖 jquery.js 和popper.js，因此在这里引入 -->
+    <script src="{% static 'jquery/jquery-3.4.1.js' %}"></script>
+    <script src="{% static 'popper/popper.js' %}"></script>
+    <!-- 引入bootstrap的js文件 -->
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 {% endblock %}
